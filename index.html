@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BMI Calculator</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+
+<body>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+      </button>
+      <div class="container">
+            <div class="calculator-box">
+                  <div class="greeting"><span class="first-line"></span></div>
+                  <div class="instructions"><span class="second-line"></span></div>
+
+                  <div class="input-section" style="display: none;">
+                        <div class="unit-selectors">
+                              <div class="unit-group">
+                                    <label>Weight Unit:</label>
+                                    <select id="weight-unit">
+                                          <option value="kg">Kilograms (kg)</option>
+                                          <option value="lbs">Pounds (lbs)</option>
+                                          <option value="st">Stone (st)</option>
+                                    </select>
+                              </div>
+                              <div class="unit-group">
+                                    <label>Height Unit:</label>
+                                    <select id="height-unit">
+                                          <option value="cm">Centimeters (cm)</option>
+                                          <option value="m">Meters (m)</option>
+                                          <option value="ft">Feet & Inches (ft/in)</option>
+                                          <option value="in">Inches (in)</option>
+                                    </select>
+                              </div>
+                        </div>
+
+                        <div class="input-fields">
+                              <div class="weight-input">
+                                    <input type="number" id="weight" placeholder="Weight">
+                              </div>
+                              <div class="height-input" id="height-input-cm">
+                                    <input type="number" id="height" placeholder="Height">
+                              </div>
+                              <div class="height-input-ft" id="height-input-ft" style="display: none;">
+                                    <div class="dual-input">
+                                          <input type="number" id="height-ft" placeholder="Feet">
+                                          <input type="number" id="height-in" placeholder="Inches">
+                                    </div>
+                              </div>
+                              <button id="calculate-btn"><i class="fas fa-calculator"></i> Calculate BMI</button>
+                        </div>
+                  </div>
+
+                  <div class="result" style="display: none;">
+                        <div class="bmi-value"></div>
+                        <div class="bmi-category"></div>
+                        <div class="bmi-chart">
+                              <h3>BMI Categories:</h3>
+                              <ul>
+                                    <li><span class="underweight">Underweight</span>: BMI < 18.5</li>
+                                    <li><span class="normal">Normal weight</span>: 18.5 - 24.9</li>
+                                    <li><span class="overweight">Overweight</span>: 25 - 29.9</li>
+                                    <li><span class="obese">Obese</span>: BMI ≥ 30</li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <script src="script.js"></script>
+</body>
+
+</html>
