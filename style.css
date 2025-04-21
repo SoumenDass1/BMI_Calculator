@@ -263,7 +263,7 @@ button:hover {
 body.dark {
       --primary: #ff9800;
       --secondary: #e91e63;
-      --accent: #00e676;
+      --accent: #ff9800;
       --text: #e0e0e0;
       --light: #121212;
       --shadow: 0 0 20px rgba(255, 255, 255, 0.05);

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
       let typed1 = new Typed('.first-line', {
-            strings: ["Hello Sir!! Welcome to The BMI Calculator!"],
+            strings: ["Welcome to The BMI Calculator!"],
             typeSpeed: 50,
             loop: false,
             onComplete: function () {
