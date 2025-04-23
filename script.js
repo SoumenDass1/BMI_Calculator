@@ -51,9 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   case 'lbs':
                         weightKg = weight * 0.453592;
                         break;
-                  case 'st':
-                        weightKg = weight * 6.35029;
-                        break;
                   default:
                         weightKg = weight;
             }
@@ -80,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (isNaN(weightKg) || isNaN(heightM) || weightKg <= 0 || heightM <= 0) {
-                  showResult("Please enter valid values for weight and height.", "error");
+                  showResult("Please enter valid values for weight and height.");
                   return;
             }
 
@@ -120,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
             resultDiv.scrollIntoView({ behavior: 'smooth' });
       }
 
-      // Light/Dark Theme Toggle - always starts in light mode
       const themeToggle = document.getElementById('theme-toggle');
       let isDarkMode = false; // default to light
 
@@ -132,6 +128,5 @@ document.addEventListener('DOMContentLoaded', function () {
                   : '<i class="fas fa-moon"></i>';
       });
 
-      // Set initial icon to moon (because it's light mode by default)
       themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
 });
