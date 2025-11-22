@@ -4,7 +4,9 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>BMI Calculator</title>
+      <title>BMI Calculator - Track Your Health</title>
+      <meta name="description"
+            content="Calculate your Body Mass Index (BMI) and get personalized health recommendations">
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -14,6 +16,7 @@
       <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
             <i class="fas fa-moon"></i>
       </button>
+
       <div class="container">
             <div class="calculator-box">
                   <div class="greeting"><span class="first-line"></span></div>
@@ -22,14 +25,14 @@
                   <div class="input-section" style="display: none;">
                         <div class="unit-selectors">
                               <div class="unit-group">
-                                    <label>Weight Unit:</label>
+                                    <label><i class="fas fa-weight"></i> Weight Unit:</label>
                                     <select id="weight-unit">
                                           <option value="kg">Kilograms (kg)</option>
                                           <option value="lbs">Pounds (lbs)</option>
                                     </select>
                               </div>
                               <div class="unit-group">
-                                    <label>Height Unit:</label>
+                                    <label><i class="fas fa-ruler-vertical"></i> Height Unit:</label>
                                     <select id="height-unit">
                                           <option value="cm">Centimeters (cm)</option>
                                           <option value="m">Meters (m)</option>
@@ -41,32 +44,86 @@
 
                         <div class="input-fields">
                               <div class="weight-input">
-                                    <input type="number" id="weight" placeholder="Weight">
+                                    <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
                               </div>
                               <div class="height-input" id="height-input-cm">
-                                    <input type="number" id="height" placeholder="Height">
+                                    <input type="number" id="height" placeholder="Enter your height" step="0.1">
                               </div>
                               <div class="height-input-ft" id="height-input-ft" style="display: none;">
                                     <div class="dual-input">
-                                          <input type="number" id="height-ft" placeholder="Feet">
-                                          <input type="number" id="height-in" placeholder="Inches">
+                                          <input type="number" id="height-ft" placeholder="Feet" step="1">
+                                          <input type="number" id="height-in" placeholder="Inches" step="0.1">
                                     </div>
                               </div>
-                              <button id="calculate-btn"><i class="fas fa-calculator"></i> Calculate BMI</button>
+                              <button id="calculate-btn"><i class="fas fa-calculator"></i> Calculate My BMI</button>
                         </div>
                   </div>
 
                   <div class="result" style="display: none;">
                         <div class="bmi-value"></div>
                         <div class="bmi-category"></div>
+
+                        <!-- BMI Gauge/Meter -->
+                        <div class="bmi-gauge-container">
+                              <div class="bmi-gauge">
+                                    <div class="bmi-indicator" id="bmi-indicator"></div>
+                              </div>
+                              <div class="gauge-labels">
+                                    <span>Underweight</span>
+                                    <span>Normal</span>
+                                    <span>Overweight</span>
+                                    <span>Obese</span>
+                              </div>
+                        </div>
+
+                        <!-- Ideal Weight Range -->
+                        <div class="ideal-weight" id="ideal-weight">
+                              <h3><i class="fas fa-bullseye"></i> Your Ideal Weight Range</h3>
+                              <p id="ideal-weight-text"></p>
+                        </div>
+
+                        <!-- Health Recommendations -->
+                        <div class="health-tips" id="health-tips">
+                              <h3><i class="fas fa-heartbeat"></i> Health Recommendations</h3>
+                              <ul id="recommendations-list">
+                              </ul>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                              <button class="action-btn" id="recalculate-btn">
+                                    <i class="fas fa-redo"></i> Recalculate
+                              </button>
+                              <button class="action-btn" id="print-btn">
+                                    <i class="fas fa-print"></i> Print Results
+                              </button>
+                              <button class="action-btn" id="share-btn">
+                                    <i class="fas fa-share-alt"></i> Share
+                              </button>
+                        </div>
+
+                        <!-- BMI Chart -->
                         <div class="bmi-chart">
-                              <h3>BMI Categories:</h3>
+                              <h3><i class="fas fa-chart-bar"></i> BMI Categories Reference</h3>
                               <ul>
                                     <li><span class="underweight">Underweight</span>: BMI < 18.5</li>
                                     <li><span class="normal">Normal weight</span>: 18.5 - 24.9</li>
                                     <li><span class="overweight">Overweight</span>: 25 - 29.9</li>
                                     <li><span class="obese">Obese</span>: BMI ≥ 30</li>
                               </ul>
+                        </div>
+                  </div>
+
+                  <!-- BMI History Section -->
+                  <div class="history-section" id="history-section" style="display: none;">
+                        <div class="history-header">
+                              <h3><i class="fas fa-history"></i> Your BMI History</h3>
+                              <button class="clear-history" id="clear-history-btn">
+                                    <i class="fas fa-trash"></i> Clear History
+                              </button>
+                        </div>
+                        <div class="history-list" id="history-list">
+                              <!-- History items will be added here dynamically -->
                         </div>
                   </div>
             </div>
